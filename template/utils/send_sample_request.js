@@ -95,7 +95,7 @@ define([
 
       // send AJAX request, catch success or error callback
       var ajaxRequest;
-      if(type.toUpperCase() =='GET')
+      if(type.toUpperCase() !='GET')
       {
         ajaxRequest = {
             url        : url,
