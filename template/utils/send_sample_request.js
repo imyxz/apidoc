@@ -95,13 +95,14 @@ define([
 
       // send AJAX request, catch success or error callback
       var ajaxRequest = {
-          url        : url,
-          headers    : header,
-          data       : param,
-          type       : type.toUpperCase(),
-          success    : displaySuccess,
-          error      : displayError
-      };
+        url        : url,
+        headers    : header,
+        data       : JSON.stringify(param),
+        type       : type.toUpperCase(),
+        contentType: "application/json; charset=utf-8",
+        success    : displaySuccess,
+        error      : displayError
+    };
 
       $.ajax(ajaxRequest);
 
