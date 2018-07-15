@@ -94,15 +94,30 @@ define([
       });
 
       // send AJAX request, catch success or error callback
-      var ajaxRequest = {
-        url        : url,
-        headers    : header,
-        data       : JSON.stringify(param),
-        type       : type.toUpperCase(),
-        contentType: "application/json; charset=utf-8",
-        success    : displaySuccess,
-        error      : displayError
-    };
+      var ajaxRequest;
+      if(type.toUpperCase() =='GET')
+      {
+        ajaxRequest = {
+            url        : url,
+            headers    : header,
+            data       : JSON.stringify(param),
+            type       : type.toUpperCase(),
+            contentType: "application/json; charset=utf-8",
+            success    : displaySuccess,
+            error      : displayError
+        };
+      }
+      else
+      {
+        ajaxRequest = {
+            url        : url,
+            headers    : header,
+            data       : param,
+            type       : type.toUpperCase(),
+            success    : displaySuccess,
+            error      : displayError
+        };
+      }
 
       $.ajax(ajaxRequest);
 
