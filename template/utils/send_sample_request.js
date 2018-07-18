@@ -1,3 +1,4 @@
+var jwt = ''
 define([
   'jquery',
   'lodash'
@@ -95,6 +96,7 @@ define([
 
       // send AJAX request, catch success or error callback
       var ajaxRequest;
+      header['X-JWT'] = jwt
       if(type.toUpperCase() !='GET')
       {
         ajaxRequest = {
@@ -130,6 +132,7 @@ define([
           } catch (e) {
               jsonResponse = data;
           }
+          jst = jqXHR.getResponseHeader('X-JWT')
           $root.find(".sample-request-response-json").html(jsonResponse);
           refreshScrollSpy();
       };
