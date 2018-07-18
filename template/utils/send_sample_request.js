@@ -132,7 +132,7 @@ define([
           } catch (e) {
               jsonResponse = data;
           }
-          jst = jqXHR.getResponseHeader('X-JWT')
+          jwt = jqXHR.getResponseHeader('X-JWT')
           $root.find(".sample-request-response-json").html(jsonResponse);
           refreshScrollSpy();
       };
